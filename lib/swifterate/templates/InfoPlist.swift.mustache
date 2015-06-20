@@ -1,8 +1,8 @@
 enum {{ name }}: String {
 
-    {{#keys}}
-    case {{.}} = "{{.}}"
-    {{/keys}}
+    {{#members}}
+    case {{member_name}} = "{{key}}"
+    {{/members}}
 
     private var infoDictionary: [NSObject : AnyObject] {
         return NSBundle.mainBundle().infoDictionary!

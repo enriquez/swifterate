@@ -1,9 +1,9 @@
 extension UIImage {
     
     enum {{name}}: String {
-        {{#assets}}
-        case {{.}} = "{{.}}"
-        {{/assets}}
+        {{#members}}
+        case {{member_name}} = "{{key}}"
+        {{/members}}
     }
     
     convenience init!(assetIdentifier: {{name}}) {

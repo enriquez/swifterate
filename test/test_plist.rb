@@ -11,6 +11,16 @@ class TestPList < Minitest::Test
     assert_includes(@plist.keys, "CFBundleName")
     assert_includes(@plist.keys, "CFBundleShortVersionString")
     assert_includes(@plist.keys, "CFBundleVersion")
+    assert_includes(@plist.keys, "UISupportedInterfaceOrientations~ipad")
+  end
+
+  def test_members
+    assert_equal(@plist.members, [
+      { member_name: "CFBundleName",                         key: "CFBundleName" },
+      { member_name: "CFBundleShortVersionString",           key: "CFBundleShortVersionString" },
+      { member_name: "CFBundleVersion",                      key: "CFBundleVersion" },
+      { member_name: "UISupportedInterfaceOrientationsipad", key: "UISupportedInterfaceOrientations~ipad" }
+    ])
   end
 
   def test_swift_enum

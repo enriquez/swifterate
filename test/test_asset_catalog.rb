@@ -14,6 +14,13 @@ class TestAssetCatalog < Minitest::Test
     refute_includes(@asset_catalog.assets, "LaunchImage")
   end
 
+  def test_members
+    assert_equal(@asset_catalog.members, [
+      { member_name: "MyAppLogo",     key: "MyAppLogo" },
+      { member_name: "PrimaryButton", key: "PrimaryButton" }
+    ])
+  end
+
   def test_swift_extension
     swift_extension_fixture = File.join(File.dirname(__FILE__), 'fixtures/UIImageMyAppExtensions.swift')
     assert_equal(@asset_catalog.swift_extension, File.read(swift_extension_fixture))

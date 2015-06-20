@@ -3,6 +3,7 @@ enum InfoPlist: String {
     case CFBundleName = "CFBundleName"
     case CFBundleShortVersionString = "CFBundleShortVersionString"
     case CFBundleVersion = "CFBundleVersion"
+    case UISupportedInterfaceOrientationsipad = "UISupportedInterfaceOrientations~ipad"
 
     private var infoDictionary: [NSObject : AnyObject] {
         return NSBundle.mainBundle().infoDictionary!
