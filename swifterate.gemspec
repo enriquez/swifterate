@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["mike@enriquez.me"]
 
   spec.summary       = %q{Swift code generator.}
-  spec.description   = %q{Swift code generator. Generate strongly typed enums based on your Info.plist and Asset Catalog.}
+  spec.description   = %q{Swift code generator. Generate strongly typed enums based on your Info.plist and Asset Catalog. No more magic strings!}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
@@ -21,4 +21,8 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.9"
   spec.add_development_dependency "rake", "~> 10.0"
+
+  spec.add_dependency "CFPropertyList", "~> 2.3"
+  spec.add_dependency "thor", "~> 0.19"
+  spec.add_dependency "mustache", "~> 1.0"
 end

@@ -1,6 +1,6 @@
 # Swifterate
 
-Swift code generator. Generate strongly typed enums based on your Info.plist and Asset Catalog.
+Swift code generator. Generate strongly typed enums based on your Info.plist and Asset Catalog. No more magic strings!
 
 ## Installation
 
@@ -15,9 +15,17 @@ $ gem install swifterate
 After installing, the `swifterate` command is available:
 
 ```bash
-$ swifterate --help
+$ swifterate help
+Commands:
+  swifterate ac DIR          # Generate Swift code from an Asset Catalog directory located at DIR
+  swifterate help [COMMAND]  # Describe available commands or one specific command
+  swifterate plist FILE      # Generate Swift code from the .plist file located at FILE
+```
 
-# TODO: show help here
+The generated Swift code is printed to the console.  You can redirect the output to a file instead:
+
+```bash
+$ swifterate plist test/fixtures/Info.plist > InfoPlist.swift
 ```
 
 ## Examples
@@ -43,7 +51,7 @@ Generate a swift enum from the following MyApp-Info.plist file:
 </plist>
 ```
 
-The following is generated with the command: `swifterate MyApp-Info.plist InfoPlist`
+The following is generated with the command: `swifterate plist MyApp-Info.plist`
 
 ```swift
 enum InfoPlist: String {
@@ -102,21 +110,21 @@ Generate a `UIImage` extension with an enumerated list of assets from the Asset 
 MyApp.xcassets/
   AppIcon.appiconset/
   LaunchImage.launchimage/
-  MyAppLogo.appiconset/
-  PrimaryButton.appiconset/
+  MyAppLogo.imageset/
+  PrimaryButton.imageset/
 ```
 
-The following is generated with the command: `swifterate MyApp.xcassets AssetIdentifier`
+The following is generated with the command: `swifterate ac MyApp.xcassets`
 
 ```swift
 extension UIImage {
     
-    enum AssetIdentifier: String {
+    enum MyAppAsset: String {
         case MyAppLogo = "MyAppLogo"
         case PrimaryButton = "PrimaryButton"
     }
     
-    convenience init!(assetIdentifier: AssetIdentifier) {
+    convenience init!(assetIdentifier: MyAppAsset) {
         self.init(named: assetIdentifier.rawValue)
     }
     

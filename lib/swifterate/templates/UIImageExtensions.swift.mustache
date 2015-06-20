@@ -1,0 +1,13 @@
+extension UIImage {
+    
+    enum {{name}}: String {
+        {{#assets}}
+        case {{.}} = "{{.}}"
+        {{/assets}}
+    }
+    
+    convenience init!(assetIdentifier: {{name}}) {
+        self.init(named: assetIdentifier.rawValue)
+    }
+    
+}

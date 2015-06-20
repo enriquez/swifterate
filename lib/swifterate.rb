@@ -1,5 +1,6 @@
 require "swifterate/version"
+require "swifterate/plist"
+require "swifterate/asset_catalog"
 
 module Swifterate
-  # Your code goes here...
 end
