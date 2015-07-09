@@ -64,28 +64,28 @@ enum InfoPlist: String {
         return NSBundle.mainBundle().infoDictionary!
     }
 
-    var dictionary: [NSObject : AnyObject] {
-        return infoDictionary[rawValue] as! [NSObject : AnyObject]
+    var dictionary: [NSObject : AnyObject]? {
+        return infoDictionary[rawValue] as? [NSObject : AnyObject]
     }
     
-    var array: [AnyObject] {
-        return infoDictionary[rawValue] as! [AnyObject]
+    var array: [AnyObject]? {
+        return infoDictionary[rawValue] as? [AnyObject]
     }
     
-    var data: NSData {
-        return infoDictionary[rawValue] as! NSData
+    var data: NSData? {
+        return infoDictionary[rawValue] as? NSData
     }
     
-    var date: NSDate {
-        return infoDictionary[rawValue] as! NSDate
+    var date: NSDate? {
+        return infoDictionary[rawValue] as? NSDate
     }
     
-    var number: NSNumber {
-        return infoDictionary[rawValue] as! NSNumber
+    var number: NSNumber? {
+        return infoDictionary[rawValue] as? NSNumber
     }
     
-    var string: String {
-        return infoDictionary[rawValue] as! String
+    var string: String? {
+        return infoDictionary[rawValue] as? String
     }
 
 
@@ -99,7 +99,7 @@ enum InfoPlist: String {
 To use the generated enum:
 
 ```swift
-let appName = InfoPlist(.CFBundleName).string // "MyApp"
+let appName = InfoPlist(.CFBundleName).string! // "MyApp"
 ```
 
 ### Asset Catalog to UIImage Extension
