@@ -1,12 +1,11 @@
-import UIKit
-
 extension UIImage {
+
     enum {{name}}: String {
         {{#members}}
         case {{member_name}} = "{{key}}"
         {{/members}}
     }
-
+    
     convenience init!(assetIdentifier: {{name}}) {
         self.init(named: assetIdentifier.rawValue)
     }

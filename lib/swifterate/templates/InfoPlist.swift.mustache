@@ -1,39 +1,39 @@
-import Foundation
-
 enum {{ name }}: String {
     {{#members}}
     case {{member_name}} = "{{key}}"
     {{/members}}
 
-    private var infoDictionary: [NSObject: AnyObject] {
+    private var infoDictionary: [NSObject : AnyObject] {
         return NSBundle.mainBundle().infoDictionary!
     }
 
-    var dictionary: [NSObject: AnyObject]? {
-        return infoDictionary[rawValue] as? [NSObject: AnyObject]
+    var dictionary: [NSObject: AnyObject] {
+        return infoDictionary[rawValue] as! [NSObject: AnyObject]
     }
     
-    var array: [AnyObject]? {
-        return infoDictionary[rawValue] as? [AnyObject]
+    var array: [AnyObject] {
+        return infoDictionary[rawValue] as! [AnyObject]
     }
     
-    var data: NSData? {
-        return infoDictionary[rawValue] as? NSData
+    var data: NSData {
+        return infoDictionary[rawValue] as! NSData
     }
     
-    var date: NSDate? {
-        return infoDictionary[rawValue] as? NSDate
+    var date: NSDate {
+        return infoDictionary[rawValue] as! NSDate
     }
     
-    var number: NSNumber? {
-        return infoDictionary[rawValue] as? NSNumber
+    var number: NSNumber {
+        return infoDictionary[rawValue] as! NSNumber
     }
     
-    var string: String? {
-        return infoDictionary[rawValue] as? String
+    var string: String {
+        return infoDictionary[rawValue] as! String
     }
+
 
     init(_ key: {{ name }}) {
         self = key
     }
+
 }
