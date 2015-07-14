@@ -9,7 +9,19 @@ module Swifterate
     def initialize(directory)
       directory = Pathname.new(directory)
       @catalog_name = directory.basename(CATALOG_EXTENSION).to_s
-      @asset_dirs = directory.children.select { |dir| dir.directory? && dir.extname == ASSET_EXTENSION }
+      @asset_dirs = subassets(directory)
+    end
+
+    def subassets(directory)
+      directory.children.flat_map { |dir| 
+        if dir.directory?
+          if dir.extname == ASSET_EXTENSION
+            dir
+          else
+            subassets(Pathname.new(dir))
+          end
+        end
+      }.select { |e| e != nil }
     end
 
     def assets

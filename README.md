@@ -64,27 +64,27 @@ enum InfoPlist: String {
         return NSBundle.mainBundle().infoDictionary!
     }
 
-    var dictionary: [NSObject : AnyObject] {
+    var dictionary: [NSObject : AnyObject]! {
         return infoDictionary[rawValue] as! [NSObject : AnyObject]
     }
     
-    var array: [AnyObject] {
+    var array: [AnyObject]! {
         return infoDictionary[rawValue] as! [AnyObject]
     }
     
-    var data: NSData {
+    var data: NSData! {
         return infoDictionary[rawValue] as! NSData
     }
     
-    var date: NSDate {
+    var date: NSDate! {
         return infoDictionary[rawValue] as! NSDate
     }
     
-    var number: NSNumber {
+    var number: NSNumber! {
         return infoDictionary[rawValue] as! NSNumber
     }
     
-    var string: String {
+    var string: String! {
         return infoDictionary[rawValue] as! String
     }
 

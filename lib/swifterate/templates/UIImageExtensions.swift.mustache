@@ -1,5 +1,5 @@
 extension UIImage {
-    
+
     enum {{name}}: String {
         {{#members}}
         case {{member_name}} = "{{key}}"
@@ -9,5 +9,4 @@ extension UIImage {
     convenience init!(assetIdentifier: {{name}}) {
         self.init(named: assetIdentifier.rawValue)
     }
-    
 }
